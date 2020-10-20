@@ -19,13 +19,13 @@ class MyHomePage extends StatelessWidget {
     Transaction(
       id: 't1',
       title: 'Everwind',
-      amount: 500,
+      amount: 1100,
       date: DateTime.now(),
     ),
     Transaction(
       id: 't2',
       title: 'Blog',
-      amount: 420,
+      amount: 1420,
       date: DateTime.now(),
     ),
   ];
@@ -52,16 +52,42 @@ class MyHomePage extends StatelessWidget {
               return Card(
                 child: Row(children: <Widget>[
                   Container(
+                    margin: EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 15,
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.red[700],
+                        width: 2,
+                      ),
+                    ),
+                    padding: EdgeInsets.all(10),
                     child: Text(
                       tx.amount.toString(),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.red[700],
+                      ),
                     ),
                   ),
-                  Column(children: <Widget>[
-                    Text(tx.title),
-                    Text(
-                      tx.date.toString(),
-                    ),
-                  ]),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(tx.title,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Colors.black,
+                            )),
+                        Text(
+                          tx.date.toString(),
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ]),
                 ]),
               );
             }).toList(),
